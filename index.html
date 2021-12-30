@@ -931,11 +931,11 @@
 
 
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TWPM36V');</script>
+})(window,document,'script','dataLayer','GTM-TWPM36V');</script> -->
 <!-- End Google Tag Manager -->
   
 </head>
@@ -2568,6 +2568,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
   </script>
 
+<!-- triggers when user scrolls to bottom fo the page -->
   <script>
     window.addEventListener("scroll", scrolledToBottom);
 
@@ -2578,16 +2579,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           window.removeEventListener("scroll", scrolledToBottom);
       }
     }
-
-
-    // window.onscroll = function(ev) {
-    //   if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-    //       console.log("you're at the bottom of the page");
-    //       ga('send', 'event', 'Scroll', 'Scrolled', 'Bottom');
-    //   }
-    // };
   </script>
 
+<!-- triggers when form is viewed -->
   <script>
     document.addEventListener("scroll", inView);
 
@@ -2599,8 +2593,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             document.removeEventListener("scroll", inView);
         }
     }
+
   </script>
 
+  <script>
+
+    document.addEventListener("input", formInput);
+
+    function formInput() {
+      if (document.getElementById("name").value !== ""){
+        console.log("name");
+        ga('send', 'event', 'Form', 'StartFill', 'Name');
+        document.removeEventListener("input", formInput);
+      }
+      else if (document.getElementById("email").value !== ""){
+        console.log("email");
+        ga('send', 'event', 'Form', 'StartFill', 'Email');
+        document.removeEventListener("input", formInput);
+      }
+      else if (document.getElementById("phone").value !== ""){ 
+        console.log("phone");
+        ga('send', 'event', 'Form', 'StartFill', 'Phone');
+        document.removeEventListener("input", formInput);
+      }
+      else if (document.getElementById("message").value !== ""){
+        console.log("message");
+        ga('send', 'event', 'Form', 'StartFill', 'Message');
+        document.removeEventListener("input", formInput);
+      }
+  }
+
+  </script>
 
 </body>
 

@@ -2530,6 +2530,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           scrollTop: ($($anchor.attr('href')).offset().top - 50)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
+
+
       });
 
       // Highlight the top nav as scrolling occurs
@@ -2557,14 +2559,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       element.style.right = '20px';
 
 
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "popup aleatório apareceu",
-        apareceuem: new Date().getTime()
-      })
+      // window.dataLayer = window.dataLayer || [];
+      // window.dataLayer.push({
+      //   event: "popup aleatório apareceu",
+      //   apareceuem: new Date().getTime()
+      // })
     }, Math.random() * 12000 + 5000);
     
   </script>
+
+  <script>
+    window.onscroll = function(ev) {
+      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+          console.log("you're at the bottom of the page");
+          ga('send', 'event', 'Scroll', 'Scrolled', 'Bottom');
+      }
+    };
+  </script>
+
 
 </body>
 

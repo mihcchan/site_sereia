@@ -2569,12 +2569,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
   <script>
-    window.onscroll = function(ev) {
+    window.addEventListener("scroll", scrolledToBottom);
+
+    function scrolledToBottom () {
       if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
           console.log("you're at the bottom of the page");
           ga('send', 'event', 'Scroll', 'Scrolled', 'Bottom');
+          window.removeEventListener("scroll", scrolledToBottom);
       }
-    };
+    }
+
+
+    // window.onscroll = function(ev) {
+    //   if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+    //       console.log("you're at the bottom of the page");
+    //       ga('send', 'event', 'Scroll', 'Scrolled', 'Bottom');
+    //   }
+    // };
+  </script>
+
+  <script>
+    document.addEventListener("scroll", inView);
+
+    function inView() {
+        if (document.getElementById("contactForm").getBoundingClientRect().bottom <= window.innerHeight) {
+            console.log("in view");
+            ga('send', 'event', 'Form', 'Viewed', 'Contact');
+            // uncomment below if you only want it to notify once
+            document.removeEventListener("scroll", inView);
+        }
+    }
   </script>
 
 

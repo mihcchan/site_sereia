@@ -2622,7 +2622,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.removeEventListener("input", formInput);
       }
   }
+  </script>
 
+<!-- triggers when click the submit form button -->
+  <script>
+    document.querySelector("button[type=submit]").addEventListener("click", formSubmitt);
+
+    function formSubmitt() {
+      var invalidForm=true;
+      var x = document.getElementsByClassName("form-control")
+      for (i=0; i<x.length; i++){
+        if (x[i].getAttribute("aria-invalid") === null || x[i].getAttribute("aria-invalid") === "true"){
+          console.log("invalid");
+          invalidForm = true;
+          break;
+        }else{
+          console.log(x[i].getAttribute("aria-invalid"));
+          console.log("valid");
+          invalidForm = false;
+        }
+      }
+      if (invalidForm === false){
+        console.log("success");
+        ga('send', 'event', 'Form', 'Send', 'success');
+      }
+      else{
+        console.log("fail");
+        ga('send', 'event', 'Form', 'Send', 'fail');
+      }
+    }
   </script>
 
 </body>

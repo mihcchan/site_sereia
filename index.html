@@ -2596,7 +2596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </script>
 
-<!-- triggers when the user starts to be filled -->
+<!-- triggers when the user starts to fill the form -->
   <script>
     document.addEventListener("input", formInput);
 
@@ -2650,6 +2650,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         console.log("fail");
         ga('send', 'event', 'Form', 'Send', 'fail');
       }
+    }
+  </script>
+
+<!-- triggers when the user clicks some button on the top bar -->
+  <script>
+    // document.getElementById("bs-example-navbar-collapse-1").addEventListener("click", topBarClick);
+    // nao usei a opção de cima porque tava pegando o click da parte toda da direita
+    document.getElementsByClassName("nav navbar-nav navbar-right")[0].addEventListener("click", topBarClick);
+    document.getElementsByClassName("navbar-brand page-scroll")[0].addEventListener("click", topBarClick);
+
+    function topBarClick(e){
+      console.log(e.target.innerText)
+      ga('send', 'event', 'TopBar', 'Click', e.target.innerText);
     }
   </script>
 

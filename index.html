@@ -2630,7 +2630,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function formSubmitt() {
       var invalidForm=true;
-      var x = document.getElementsByClassName("form-control")
+      var x = document.getElementsByClassName("form-control");
       for (i=0; i<x.length; i++){
         if (x[i].getAttribute("aria-invalid") === null || x[i].getAttribute("aria-invalid") === "true"){
           console.log("invalid");
@@ -2657,13 +2657,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     // document.getElementById("bs-example-navbar-collapse-1").addEventListener("click", topBarClick);
     // nao usei a opção de cima porque tava pegando o click da parte toda da direita
-    document.getElementsByClassName("nav navbar-nav navbar-right")[0].addEventListener("click", topBarClick);
-    document.getElementsByClassName("navbar-brand page-scroll")[0].addEventListener("click", topBarClick);
+    document.querySelector(".nav.navbar-nav.navbar-right").addEventListener("click", topBarClick);
+    document.querySelector(".navbar-brand.page-scroll").addEventListener("click", topBarClick);
 
     function topBarClick(e){
       console.log(e.target.innerText)
       ga('send', 'event', 'TopBar', 'Click', e.target.innerText);
     }
+  </script>
+
+<!-- triggers when the user clicks on a social media button -->
+  <script>
+    var socialButtons = document.getElementsByClassName("list-inline social-buttons");
+    var insideButton = document.querySelectorAll("a > .fa");
+
+    for (i=0; i<socialButtons.length; i++){
+      if (i !== 3){
+        socialButtons[i].addEventListener("click", socialClickDevs);
+      }
+      else{
+        socialButtons[i].addEventListener("click", socialClickSite);
+      }
+    }
+
+    for (i=0; i<insideButton.length - 3; i++){
+      insideButton[i].addEventListener("click", insideButtonClickDev);
+    }
+    for (i=insideButton.length-1; i>=insideButton.length-3; i--){
+      insideButton[i].addEventListener("click", insideButtonClickSite);
+    }
+
+    function socialClickDevs(e) {
+      if (e.target.firstElementChild !== null){
+        console.log("dev " + e.target.firstElementChild.getAttribute("class").slice(6));
+        ga('send', 'event', 'Dev Social', 'Click', e.target.firstElementChild.getAttribute("class").slice(6));
+      }
+    }
+
+    function insideButtonClickDev(e) {
+      console.log("dev " + e.target.getAttribute("class").slice(6));
+      ga('send', 'event', 'Dev Social', 'Click', e.target.getAttribute("class").slice(6));
+    }
+
+    function socialClickSite(e) {
+      if (e.target.firstElementChild !== null){
+        console.log('site ' + e.target.firstElementChild.getAttribute("class").slice(6));
+        ga('send', 'event', 'Site social', 'Click', e.target.firstElementChild.getAttribute("class").slice(6));
+      }
+    }
+
+    function insideButtonClickSite(e) {
+      console.log("site " + e.target.getAttribute("class").slice(6));
+      ga('send', 'event', 'Site Social', 'Click', e.target.getAttribute("class").slice(6));
+    }
+
   </script>
 
 </body>

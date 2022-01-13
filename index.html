@@ -2736,6 +2736,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </script>
 
+  <script>
+    window.addEventListener("load", oneMinuteTimer);
+    function oneMinuteTimer(){
+      setTimeout(function(){
+        console.log("ficou 1 min na pagina");
+        ga('send', 'event', 'User', 'Stayed', "1-minute");
+      }, 60000);
+    }
+  </script>
+
 </body>
 
 </html>

@@ -946,7 +946,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   
-  <img src="https://tag-trainer.raccoon.ag/static/shared/balloon.svg" id="call-me-baby" />
+  <!-- <img src="https://tag-trainer.raccoon.ag/static/shared/balloon.svg" id="call-me-baby" /> -->
+  <img src="https://cdn.shopify.com/app-store/listing_images/91ab22ba9470462aea9405a5c70eb423/banner/CKGIjbL0lu8CEAE=.png" id="call-me-baby" />
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
@@ -2736,6 +2737,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </script>
 
+<!-- triggers when the user stays on the page for at least 1 minute -->
   <script>
     window.addEventListener("load", oneMinuteTimer);
     function oneMinuteTimer(){
@@ -2743,6 +2745,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         console.log("ficou 1 min na pagina");
         ga('send', 'event', 'User', 'Stayed', "1-minute");
       }, 60000);
+    }
+  </script>
+
+<!-- triggers when the user keeps the pointer over the popup for 5s -->
+  <script>
+    let phonePopUp = document.querySelector('#call-me-baby');
+    phonePopUp.addEventListener('mouseenter', mouse5seconds);
+    
+    phonePopUp.addEventListener('mouseleave', mouseLeave);
+
+    var timer = undefined;
+
+    function mouse5seconds (){
+      console.log('entrou no popup');
+      timer = setTimeout(function(){
+        console.log("5s com mouse no popup");
+        ga('send', 'event', 'PopUp', 'MouseHover', "5-seconds");
+      }, 5000);
+    }
+
+    function mouseLeave (){
+      console.log('saiu do popup');
+      clearTimeout(timer);
     }
   </script>
 

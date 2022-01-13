@@ -2713,6 +2713,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </script>
 
+<!-- triggers when the user views the popup, but its firing one itme before the popup appears -->
+  <script>
+    
+    let options = {
+      root: document.querySelector('#page-top'),
+      rootMargin: '0px',
+      threshold: 1.0
+    }
+
+    
+    let observer = new IntersectionObserver(popUpView);
+
+    let target = document.querySelector('#call-me-baby');
+    
+    observer.observe(target);
+
+    function popUpView() {
+      console.log("popup viewd ");
+      ga('send', 'event', 'PopUp', 'View', target.getAttribute("id"));
+    }
+
+  </script>
+
 </body>
 
 </html>

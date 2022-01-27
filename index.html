@@ -2580,6 +2580,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
 
 <!-- triggers when user scrolls to bottom fo the page -->
+<!-- DONE IN GTM -->
   <!-- <script>
     window.addEventListener("scroll", scrolledToBottom);
 
@@ -2593,7 +2594,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script> -->
 
 <!-- triggers when form is viewed -->
-  <script>
+  <!-- <script>
     document.addEventListener("scroll", inView);
 
     function inView() {
@@ -2605,10 +2606,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     }
 
-  </script>
+  </script> -->
 
 <!-- triggers when the user starts to fill the form -->
-  <script>
+  <!-- <script>
     document.addEventListener("input", formInput);
 
     function formInput() {
@@ -2633,10 +2634,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         document.removeEventListener("input", formInput);
       }
   }
-  </script>
+  </script> -->
 
 <!-- triggers when click the submit form button -->
-  <script>
+  <!-- <script>
     document.querySelector("button[type=submit]").addEventListener("click", formSubmitt);
 
     function formSubmitt() {
@@ -2662,10 +2663,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ga('send', 'event', 'Form', 'Send', 'fail');
       }
     }
-  </script>
+  </script> -->
 
 <!-- triggers when the user clicks some button on the top bar -->
-  <script>
+  <!-- <script>
     // document.getElementById("bs-example-navbar-collapse-1").addEventListener("click", topBarClick);
     // nao usei a opção de cima porque tava pegando o click da parte toda da direita
     document.querySelector(".nav.navbar-nav.navbar-right").addEventListener("click", topBarClick);
@@ -2675,10 +2676,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       console.log(e.target.innerText)
       ga('send', 'event', 'TopBar', 'Click', e.target.innerText);
     }
-  </script>
+  </script> -->
 
 <!-- triggers when the user clicks on a social media button -->
-  <script>
+  <!-- <script>
     var socialButtons = document.getElementsByClassName("list-inline social-buttons");
     var insideButton = document.querySelectorAll("a > .fa");
 
@@ -2722,10 +2723,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       ga('send', 'event', 'Site Social', 'Click', e.target.getAttribute("class").slice(6));
     }
 
-  </script>
+  </script> -->
 
 <!-- triggers when the user views the popup, but its firing one itme before the popup appears -->
-  <script>
+  <!-- <script>
     
     let options = {
       root: document.querySelector('#page-top'),
@@ -2745,10 +2746,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       ga('send', 'event', 'PopUp', 'View', target.getAttribute("id"));
     }
 
-  </script>
+  </script> -->
 
 <!-- triggers when the user stays on the page for at least 1 minute -->
-  <script>
+  <!-- <script>
     window.addEventListener("load", oneMinuteTimer);
     function oneMinuteTimer(){
       setTimeout(function(){
@@ -2756,10 +2757,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ga('send', 'event', 'User', 'Stayed', "1-minute");
       }, 60000);
     }
-  </script>
+  </script> -->
 
 <!-- triggers when the user keeps the pointer over the popup for 5s -->
-  <script>
+  <!-- <script>
     let phonePopUp = document.querySelector('#call-me-baby');
     phonePopUp.addEventListener('mouseenter', mouse5seconds);
     
@@ -2779,7 +2780,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       console.log('saiu do popup');
       clearTimeout(timer);
     }
-  </script>
+  </script> -->
 
 </body>
 
